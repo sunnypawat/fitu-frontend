@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image,StatusBar} from 'react-native';
+import { StyleSheet, Text, View, Image,StatusBar, SafeAreaView} from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import logo1 from './img/Us.png';
+import { useFonts, Share_700Bold, Share_700Bold_Italic } from '@expo-google-fonts/share';
+import { AppLoading } from 'expo';
 export default function Profile({navigation}) {
 
   const openMenu = () =>{
@@ -14,8 +16,7 @@ export default function Profile({navigation}) {
 
 
   return (
-    <View style={styles.container}>
-    <StatusBar />
+    <SafeAreaView style={styles.container}>
       <View style={styles.topBlock}>
         <View style={styles.topTopBlock}>
           <View style={styles.iconBox}>
@@ -23,19 +24,19 @@ export default function Profile({navigation}) {
           </View>
         </View>
         <View style={styles.bottomTopBlock}>
-          <Text style={styles.title}>UrNameTJ</Text>
+          <Text style={styles.title}>Sun</Text>
         </View>
       </View>
       <View style={styles.image}>
         <Image source={logo1} style={{resizeMode:'contain', flex:0.9}}/>
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoText}>Username: MemelordThe3rd</Text>
-        <Text style={styles.infoText}>UID: 420EXE</Text>
-        <Text style={styles.infoText}>Title: Fitness Veteran</Text>
-        <Text style={styles.infoText}>BMI: OVER9000</Text>
+        <Text style={styles.infoText}>Username: Sunnypawat</Text>
+        <Text style={styles.infoText}>UID: 63381035491</Text>
+        <Text style={styles.infoText}>Title: Fitness Amateur</Text>
+        <Text style={styles.infoText}>BMI: Well in Range!</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -81,12 +82,13 @@ const styles = StyleSheet.create({
     infoText:{
       fontSize:20,
       marginBottom:10,
-      fontFamily:'monospace'
+      fontFamily:'Share_700Bold_Italic'
     },
     title:{
       fontSize:35,
       fontWeight:'bold',
-      color:'greenyellow'
+      color:'greenyellow',
+      fontFamily:"Share_700Bold_Italic"
     },
     iconBox:{
       backgroundColor:'greenyellow',

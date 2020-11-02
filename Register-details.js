@@ -9,30 +9,16 @@ export default class Register extends React.Component {
   } 
   state={
     email:"",
-    password:"",
-    password_conf:"",
-    confirm_pass: false,
-    age: "",
-    height:"",
-    weight:"",
-    gender:"",
-    error_message:""
+    password:""
   }
-
-
   render(){
-    
     return (
-
-
-
- 
       <View style={styles.container}>
         <Text style={styles.logo}>Enter your details!</Text>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
-            placeholder="Username..." 
+            placeholder="Email..." 
             placeholderTextColor="#003f5c"
             onChangeText={text => this.setState({email:text})}/>
         </View>
@@ -44,51 +30,10 @@ export default class Register extends React.Component {
             placeholderTextColor="#003f5c"
             onChangeText={text => this.setState({password:text})}/>
         </View>
-        <View style={styles.inputView} >
-          <TextInput  
-            secureTextEntry
-            style={styles.inputText}
-            placeholder="Password confirmation..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password_conf:text})}/>
-        </View>
-        <View style={styles.inputView} >
-          <TextInput  
-
-            style={styles.inputText}
-            placeholder="Gender (Male or Female)..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password_conf:text})}/>
-        </View>
-        <View style={styles.inputView} >
-          <TextInput  
-
-            style={styles.inputText}
-            placeholder="Age..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password_conf:text})}/>
-        </View>
-        <View style={styles.inputView} >
-          <TextInput  
-        
-            style={styles.inputText}
-            placeholder="Height (cm)..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password_conf:text})}/>
-        </View>
-        <View style={styles.inputView} >
-          <TextInput  
-            
-            style={styles.inputText}
-            placeholder="Weight (kg)..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => this.setState({password_conf:text})}/>
-        </View>
       
         <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")} style={styles.loginBtn}>
           <Text style={styles.loginText}>Create an account!</Text>
         </TouchableOpacity>
-    <Text>{this.state.error_message}</Text>
 
   
       </View>

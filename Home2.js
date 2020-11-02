@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
-
-
+import calendar from './assets/calendar.jpg';
+import { useFonts, Share_700Bold, Share_700Bold_Italic } from '@expo-google-fonts/share';
+import { AppLoading } from 'expo';
 export default function Home2({navigation}) {
 
     const openMenu = () =>{
@@ -10,6 +11,14 @@ export default function Home2({navigation}) {
     }
 
     const openProfile =()=>navigation.navigate('Profile')
+
+    let [fontsLoaded] = useFonts({
+        Share_700Bold,Share_700Bold_Italic
+      });
+    
+      if (!fontsLoaded) {
+        return <AppLoading />;
+      }
 
     return (
         <View style={styles.container}>
@@ -20,8 +29,9 @@ export default function Home2({navigation}) {
                 </View>
             </View>
             <View style={styles.middleBlock}>
+            <Image source={calendar} style={{top:"-8%",width:"109%",borderRadius:"40%" ,resizeMode:'contain', flex:0.9, zIndex:100}}/>
                 <Text style={styles.middleText}>
-                    5 Days to go
+                    Fitness Planner
                 </Text>
             </View>
             <View style={styles.bottomBlock}>
@@ -67,8 +77,9 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
         marginBottom:15,
         flex:5.5,
-        flexDirection:'row',
-        alignItems:'flex-end'
+        flexDirection:'column',
+        alignItems:'center',
+        
     },
     bottomBlock:{
         backgroundColor:'white',
@@ -107,11 +118,14 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end'
     },
     bottomRightBottomText:{
-        color:'greenyellow'
+        color:'greenyellow',
+        fontFamily:"Share_700Bold_Italic"
     },
     title:{
         fontSize:45,
         fontWeight:'bold',
+        top:"4%",
+        fontFamily:"Share_700Bold_Italic"
         
     },
     iconBox:{
@@ -123,6 +137,7 @@ const styles = StyleSheet.create({
     },
     middleText:{
         fontSize:50,
-        color: 'greenyellow'
+        color: 'greenyellow',
+        fontFamily:"Share_700Bold_Italic"
     } 
 });
